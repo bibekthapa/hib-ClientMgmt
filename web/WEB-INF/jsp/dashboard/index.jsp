@@ -1,15 +1,45 @@
 <%@include file="../header.jsp"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-        <h1>Hello World!</h1>
-        <form>
-            Name:
-            <input name="name" type="text" class="form-control"/>
+<h1> Client Management System</h1>
+<div class="container" >
+</div>
+<input type="search" name="search"/><span class="glyphicon glyphicon-search"></span>
+<br/>
+<table class="table table-striped table-hover">
+    <tr>
+    <th>ID</th>
+    <th>NAME</th>
+    <th>EMAIL</th>
+    <th>Contact Number</th>
+    <th>Status</th>
+    </tr>
+    
+    <c:forEach var="client" items="${clients}">
+    <tr>
+        <td>${client.clientId}</td>
+         <td>${client.name}</td>
+          <td>${client.email}</td>
+           <td>${client.contactNo}</td>
+            <td>
+                <c:choose>
+                <c:when test="${client.status}">
+                    Active
+                </c:when>
+                    <c:otherwise>
+                        Inactive
+                    </c:otherwise>
+                        </c:choose>
             
-            <button class="btn btn-success">
-                <span class="glyphicon glyphicon-alert"></span>
-            </button>
             
-            
-        </form>
+            </td>
+        
+        
+        
+    </tr>
+    </c:forEach>
+    
+    
+</table>
         
  <%@include file="../footer.jsp" %>

@@ -68,7 +68,7 @@ public class Project implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "status")
-    private short status;
+    private boolean status;
     @JoinColumn(name = "client_id", referencedColumnName = "client_id")
     @ManyToOne(optional = false)
     private Client client;
@@ -80,7 +80,7 @@ public class Project implements Serializable {
         this.projectId = projectId;
     }
 
-    public Project(Integer projectId, String projectTitle, String projectDescription, Date startDate, Date endDate, Date addedDate, short status) {
+    public Project(Integer projectId, String projectTitle, String projectDescription, Date startDate, Date endDate, Date addedDate, boolean status) {
         this.projectId = projectId;
         this.projectTitle = projectTitle;
         this.projectDescription = projectDescription;
@@ -146,11 +146,11 @@ public class Project implements Serializable {
         this.modifiedDate = modifiedDate;
     }
 
-    public short getStatus() {
+    public boolean getStatus() {
         return status;
     }
 
-    public void setStatus(short status) {
+    public void setStatus(boolean status) {
         this.status = status;
     }
 

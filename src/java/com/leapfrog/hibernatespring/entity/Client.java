@@ -64,8 +64,8 @@ public class Client implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "status")
-    private short status;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "clientId")
+    private boolean status;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "client")
     private List<Project> projectList;
 
     public Client() {
@@ -75,7 +75,7 @@ public class Client implements Serializable {
         this.clientId = clientId;
     }
 
-    public Client(Integer clientId, String name, String email, String contactNo, Date addedDate, short status) {
+    public Client(Integer clientId, String name, String email, String contactNo, Date addedDate, boolean status) {
         this.clientId = clientId;
         this.name = name;
         this.email = email;
@@ -124,11 +124,11 @@ public class Client implements Serializable {
         this.addedDate = addedDate;
     }
 
-    public short getStatus() {
+    public boolean getStatus() {
         return status;
     }
 
-    public void setStatus(short status) {
+    public void setStatus(boolean status) {
         this.status = status;
     }
 
