@@ -33,8 +33,8 @@
                         </c:choose>
                         
             <td>
-                <a href="${SITE_URL}/dashboard/edit" class="btn btn-primary"> <span class="glyphicon glyphicon-pencil"></span></a>
-                              <a href="${SITE_URL}/dashboard/delete" class="btn btn-danger"> <span class="glyphicon glyphicon-trash"  ></span></a>
+                <a href="${SITE_URL}/dashboard/edit/${client.clientId}" class="btn btn-primary"> <span class="glyphicon glyphicon-pencil"></span></a>
+                              <a href="${SITE_URL}/dashboard/delete/${client.clientId}" class="btn btn-danger"> <span class="glyphicon glyphicon-trash"  ></span></a>
   
             </td> 
         
