@@ -16,10 +16,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-@RequestMapping(value = "/dashboard")
+@RequestMapping(value = {"/dashboard","/"})
 public class DashboardController {
     @Autowired
-    ClientDAO clientDAO=new ClientDAOImpl();
+    private ClientDAO clientDAO;
     
     
     @RequestMapping(method = RequestMethod.GET)
@@ -36,17 +36,27 @@ public class DashboardController {
    
        return "dashboard/add";
     }
+    
+    
     @RequestMapping(method = RequestMethod.POST,value = "/save")
-   public String save(Model model)
+   public String save(@ModelAttribute("client")Client c)
     {
         
-        Client client =new Client();
-        int result=clientDAO.insert(client);
-        model.addAttribute("result",result);
        
-        return "redirect:/dashboard/index";
+        clientDAO.insert(c);
+      
+       
+        return "redirect:/dashboard";
     
     }
+   
+    @RequestMapping(method=RequestMethod.GET,value = "/delete")
+    public String delete(int clientId)
+    {
+        clientDAO.delete(clientId);
+       return "redirect:/dashboard";
+    }
+    
     
     
 }

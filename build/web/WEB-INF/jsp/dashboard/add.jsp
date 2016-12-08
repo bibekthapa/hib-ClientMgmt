@@ -14,7 +14,7 @@
     
    <div class="form-group">
         <label>Contact no</label>
-        <input type="text" class="form-control" name="contact"/>
+        <input type="text" class="form-control" name="contactNo"/>
     </div>
     
     <div class="form-group">
@@ -22,19 +22,12 @@
             <input type="checkbox"  name="status"/>Active</label>
     </div>
     
-    <a href="${SITE_URL}/dashboard/save">
-        <button type="button" class="btn btn-success">
+    
+       
+ <button type="submit" class="btn btn-success">
             SAVE
             
         </button>
-    </a>
-    
-   
-    
-
-
-
-
 
 </form>
 

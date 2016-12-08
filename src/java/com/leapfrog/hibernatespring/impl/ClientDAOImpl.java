@@ -46,8 +46,15 @@ public class ClientDAOImpl implements ClientDAO {
     }
 
     @Override
-    public int delete(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void delete(int id) {
+            session=sessionFactory.openSession();
+            trans=session.beginTransaction();
+            Client c=(Client)session.get(Client.class, id);
+            session.delete(c);
+            trans.commit();
+            session.close();
+            
+
     }
     
 }

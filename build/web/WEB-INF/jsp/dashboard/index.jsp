@@ -13,6 +13,7 @@
     <th>EMAIL</th>
     <th>Contact Number</th>
     <th>Status</th>
+    <th>Action</th>
     </tr>
     
     <c:forEach var="client" items="${clients}">
@@ -30,11 +31,12 @@
                         Inactive
                     </c:otherwise>
                         </c:choose>
-            
-            
-            </td>
-        
-        
+                        
+            <td>
+                <a href="${SITE_URL}/dashboard/edit" class="btn btn-primary"> <span class="glyphicon glyphicon-pencil"></span></a>
+                              <a href="${SITE_URL}/dashboard/delete" class="btn btn-danger"> <span class="glyphicon glyphicon-trash"  ></span></a>
+  
+            </td> 
         
     </tr>
     </c:forEach>

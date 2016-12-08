@@ -14,6 +14,6 @@ import java.util.List;
 public interface GenericDAO<T> {
     List<T> getAll();
     int insert(T c);
-    int delete(int id);
+    void delete(int id);
     
 }

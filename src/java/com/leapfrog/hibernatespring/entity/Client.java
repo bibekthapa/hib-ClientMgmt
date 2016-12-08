@@ -52,12 +52,12 @@ public class Client implements Serializable {
     @Column(name = "email")
     private String email;
     @Basic(optional = false)
-    @NotNull
+    
     @Size(min = 1, max = 100)
     @Column(name = "contact_no")
     private String contactNo;
     @Basic(optional = false)
-    @NotNull
+    
     @Column(name = "added_date")
     @Temporal(TemporalType.TIMESTAMP)
     private Date addedDate;
