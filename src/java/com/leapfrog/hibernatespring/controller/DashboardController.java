@@ -28,6 +28,7 @@ public class DashboardController {
     {
         model.addAttribute("clients", clientDAO.getAll());
         
+        
         return "dashboard/index";
     }
     
@@ -42,10 +43,10 @@ public class DashboardController {
     @RequestMapping(method = RequestMethod.POST,value = "/save")
    public String save(@ModelAttribute("client")Client c)
     {
-        
+       
        
         clientDAO.insert(c);
-      
+        
        
         return "redirect:/dashboard";
     
@@ -57,6 +58,20 @@ public class DashboardController {
         clientDAO.delete(id);
        return "redirect:/dashboard";
     }
+    
+    
+    public String edit(@PathVariable("id") int id)
+    {
+         clientDAO.update(id);
+       return "dashboard/edit";
+    }
+     @RequestMapping(method=RequestMethod.GET,value = "/edit/{id}")
+    public String getbyId(Model model,@PathVariable("id") int id)
+    {
+       model.addAttribute("client", clientDAO.getById(id));
+       return "dashboard/edit";
+    }
+    
     
     
     

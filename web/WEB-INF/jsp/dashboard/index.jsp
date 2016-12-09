@@ -1,10 +1,14 @@
 <%@include file="../header.jsp"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
-<h1> Client Management System</h1>
-<div class="container" >
+<div class="pull-right">
+    <input type="search" name="search"/><span class="glyphicon glyphicon-search"></span></div>
+<h2> Client Management System </h2> 
+<div class="pull-right" >
+    
+  <a href="${SITE_URL}/dashboard/add" class="btn btn-primary">  <span class="glyphicon glyphicon-plus"></span>
+  </a>
 </div>
-<input type="search" name="search"/><span class="glyphicon glyphicon-search"></span>
+
 <br/>
 <table class="table table-striped table-hover">
     <tr>

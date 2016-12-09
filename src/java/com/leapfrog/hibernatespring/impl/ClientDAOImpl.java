@@ -56,5 +56,32 @@ public class ClientDAOImpl implements ClientDAO {
             
 
     }
+
+    @Override
+    public void update(int id) {
+        session=sessionFactory.openSession();
+        trans=session.beginTransaction();
+   
+        Client c=(Client)session.get(Client.class, id);
+       session.update(c);
+        trans.commit();
+        session.close();
+
+    }
+
+    @Override
+    public Client getById(int id) {
+                Client c=null;
+            session=sessionFactory.openSession();
+            trans=session.beginTransaction();
+             c=(Client)session.get(Client.class, id);
+            trans.commit();
+            session.close();
+            return c;
+            
+
+    }
+    
+    
     
 }
